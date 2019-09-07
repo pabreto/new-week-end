@@ -1,0 +1,39 @@
+Since the establishment of the five-days working week at the beginning of the 20th century and the development of leisure oriented societies, hoping for a "nice week-end" meteorologically speaking has become an increasing preocupation for many people in modern civilizations. If the holidays are usually mostly taken during summer months (June, July, August in the Northern hemisphere, December, January, February in the Southern one) for the obvious reason that the weather is "better" during this period of the year, the non working days established on Saturday and Sunday in the majority of the countries answers more to religious ancestral traditions and not to meteorological reasons.
+
+In this article, after a short introduction about historical, societal and political reasons on the definition of the week-end, we will present a meteorological indicator defining the "touristic and leisure quality" of a week-end based on temperature, precipitation and demographical data. This indicator built, it will allow us to obtain, week by week, the "best 2 days week-end". Using era5 reanalysis hourly data from 1981 to present, we will try to detect trends (even if not physical for the reasons explained above) in the "best week end days", both at a local (point by point), regional and global scales. Finally, based on the observed patterns of the past in the reanalysis, we will analyze model outputs for the ten to twenty years to propose a week-end shift from Saturday-Sunday to the 2 best days.
+
+
+1. History of the 7 days week, 2 days week-end and deinition of the 2 days week-end around the world
+2. Definition of a "week-end-metorological-quality" indicator
+  a. Local formula of the indicator
+  b. Regional and global mean with time-lag and population ponderation
+3. Analysis of the past trends of the indicator in observational data (era5)
+4. Model based forecast of the indicator
+5. Conclusion
+
+--------------
+
+
+
+1. History of the 7 days week, 2 days week-end and deinition of the 2 days week-end around the world
+
+
+2. Definition of a "week-end-metorological-quality" indicator
+  a. Local formula of the indicator
+  
+  Usually, in leisure oriented society, the definition of a good week end is based on the precipitation and temperature. In a first level quantification, the colder and rainier the day, the worse it will be rated, whereas that a blue sky and warm day will be considered better by most of the people. The most important and first criteria we consider is the precipitation: the fewer hours of rain, the better. The second and third criteria are the temperature and cloudiness. At equal number of hours of rain during the day, a day will be considered better if the sky is less cloudy (lower total cloud cover) and warm.
+  As this indicator is touristic and societal, the weather at night shouldn't be taken into account and it will only consider the previously mentioned variables during the time 8am-11pm local time.
+  Based on these considerations, we build the following day_quality_indicator:
+  day_quality_indicator(date,latitude,longitude)=abs(((precip_score+temp_score+cloudiness_score)/110)*100)
+  with precip_score = abs((Number_of_hours_with_no_precipitation)/time_interval)*10)
+  
+  
+  
+  b. Regional and global mean with population density ponderation
+
+
+3. Analysis of the past trends of the indicator in observational data (era5)
+
+4. Model based forecast of the indicator
+
+5. Conclusion
