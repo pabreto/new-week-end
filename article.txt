@@ -2,6 +2,9 @@ Since the establishment of the five-days working week at the beginning of the 20
 
 In this article, after a short introduction about historical, societal and political reasons on the definition of the week-end, we will present a meteorological indicator defining the "touristic and leisure quality" of a week-end based on temperature, precipitation and demographical data. This indicator built, it will allow us to obtain, week by week, the "best 2 days week-end". Using era5 reanalysis hourly data from 1981 to present, we will try to detect trends (even if not physical for the reasons explained above) in the "best week end days", both at a local (point by point), regional and global scales. Finally, based on the observed patterns of the past in the reanalysis, we will analyze model outputs for the ten to twenty years to propose a week-end shift from Saturday-Sunday to the 2 best days.
 
+-----------------
+
+Outline:
 
 1. History of the 7 days week, 2 days week-end and deinition of the 2 days week-end around the world
 2. Definition of a "week-end-metorological-quality" indicator
@@ -11,7 +14,7 @@ In this article, after a short introduction about historical, societal and polit
 4. Model based forecast of the indicator
 5. Conclusion
 
---------------
+-----------------
 
 
 
@@ -21,8 +24,9 @@ In this article, after a short introduction about historical, societal and polit
 2. Definition of a "week-end-metorological-quality" indicator
   a. Local formula of the indicator
   
-  Usually, in leisure oriented society, the definition of a good week end is based on the precipitation and temperature. In a first level quantification, the colder and rainier the day, the worse it will be rated, whereas that a blue sky and warm day will be considered better by most of the people. The most important and first criteria we consider is the precipitation: the fewer hours of rain, the better. The second and third criteria are the temperature and cloudiness. At equal number of hours of rain during the day, a day will be considered better if the sky is less cloudy (lower total cloud cover) and warm.
-  As this indicator is touristic and societal, the weather at night shouldn't be taken into account and it will only consider the previously mentioned variables during the time 8am-11pm local time.
+  Usually, in leisure oriented society, the definition of a good week end is based on the precipitation and temperature. In a first level quantification, the colder and rainier the day, the worse it will be rated, whereas that a blue sky and warm day will be considered more pleasant by most of the people. 
+  The most important and first criteria we consider is the precipitation: the fewer hours of rain, the better. The second and third criteria are the temperature and cloudiness. At equal number of hours of rain during the day, a day will be considered better if the sky is less cloudy (lower total cloud cover) and warm.
+  As this indicator is touristic and societal, the weather at night shouldn't be taken into account and it will only consider the previously mentioned variables during the time range 8am-11pm (local time).
   Based on these considerations, we build the following day_quality_indicator:
   day_quality_indicator(date,latitude,longitude)=abs(((precip_score+temp_score+cloudiness_score)/110)*100)
   
@@ -42,10 +46,25 @@ In this article, after a short introduction about historical, societal and polit
  
  https://docs.google.com/spreadsheets/d/1YfSuxI9x2VlfgiYOHKsK2flSJghzGfel3MTTzLdt0xU/edit?usp=sharing
  
+ Comparing some week-ends of this table, we can see that our indicator is able to reflect the "natural sensation of good or bad days".
+ 
+ * Week-end 1 has no precipitation and the temperature is the maximum of the week. Therefore it scores the maximum: 100.
+ * Week-end 2: raining always from 8am to 11pm 2 consecutive days. It obtains the minimum score, 0.
+ * Regardless of the temperature and cloudiness, week-ends 3-4-5 have less precipitation than 6-7 which have less than 8, and therefore score in this decreasing order.
+ * Week end 3 and 4 only differ by the cloudiness: cloudiness = 0, complete blue sky for week-end 3, cloudiness=50% for week-end 4, therefore week-end 3 is a bit better than 4.
+ * Same thing for 4 compared to 5 but with difference in temperature and 4 scoring better 5.
+ * Week-end 6 and 7 have the same precipitation, but temperature are slightly higher during 6 whereas cloudiness is less during 7. The score is the same, the temperature compensating the cloudiness.
   
   
-  
+  Based on this, we can compute, for a given week, the indicator for a Monday-Tuesday week-end, a Tuesday-Wednesday, ... , 7 times until Sunday-following Monday week-end and select, for this week, which is the best option this week.
+  From this, we can obtain a global map with, for each geographical point, the value of the best week-end (1 for Monday-Tuesday, 2 for Tuesday-Wednesday, 7 for Saturday-Sunday, 8 for Sunday-Monday).
+
+Insert example map
+
+Plotting one map for the all weeks of the period where we have data (1981-2018, see below), we can see the evolution of the best week-ends along the time.
+
   b. Regional and global mean with population density ponderation
+  
 
 
 3. Analysis of the past trends of the indicator in observational data (era5)
