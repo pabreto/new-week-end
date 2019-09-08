@@ -10,7 +10,7 @@ Outline:
 2. Definition of a "week-end-metorological-quality" indicator
   a. Local formula of the indicator
   b. Regional and global mean with time-lag and population ponderation
-3. Analysis of the past trends of the indicator in observational data (era5)
+3. Analysis of the past trends of the indicator in real data (era5)
 4. Model based forecast of the indicator
 5. Conclusion
 
@@ -56,18 +56,31 @@ Outline:
  * Week-end 6 and 7 have the same precipitation, but temperature are slightly higher during 6 whereas cloudiness is less during 7. The score is the same, the temperature compensating the cloudiness.
   
   
-  Based on this, we can compute, for a given week, the indicator for a Monday-Tuesday week-end, a Tuesday-Wednesday, ... , 7 times until Sunday-following Monday week-end and select, for this week, which is the best option this week.
-  From this, we can obtain a global map with, for each geographical point, the value of the best week-end (1 for Monday-Tuesday, 2 for Tuesday-Wednesday, 7 for Saturday-Sunday, 8 for Sunday-Monday).
+  Based on this, we can compute, for a given week, the indicator for a Monday-Tuesday week-end, a Tuesday-Wednesday, ... , 7 times until Sunday-following Monday week-end and select, for this week, which is the best option this week:
+  
+  
+  best_weekend(week,latitude,longitude) = max(day_quality_indicator(date,latitude,longitude), date=week_start_date-week_start_date+1,..,week_start_date+6-week_start_date+7)
+  
+  From there, we can obtain a global map with, for each geographical point, the value of the best week-end (1 for Monday-Tuesday, 2 for Tuesday-Wednesday, 7 for Saturday-Sunday, 8 for Sunday-Monday).
 
 Insert example map
 
 Plotting one map for the all weeks of the period where we have data (1981-2018, see below), we can see the evolution of the best week-ends along the time.
 
+
   b. Regional and global mean with population density ponderation
   
+The previous indicator could be used to choose individually (person by person) which two days of the week not to work according to where they live, but in 99% of the cases, people are not free to decide which days of the week not to work and the decision of the definition of the week-end should be taken at a national level, if not continental or global. Today, as shown in the first paragraph, 90% of the countries have the week-end on Saturday-Sunday, whereas the 10 remaining percents are splitted by countries or region (confirm numbers with 1st paragraph).
 
+In a first attempt, we could just say that the regional_best_weekend could be easily computed as the average of the best_weekend in the area of interest (country, Europe, North or South America, Maghreb, South East Asia, global,...). But we should not forget that this is a societal indicator and that it is based on where people live. For example, it doesn't make sense to compute the global mean of the best_weekend indicator taking into account the weather in the oceans, or putting the same weight for the weather of Siberia than the one from the coastal area of China which is heavily populated. Indeed, choosing a Tuesday-Wednesday week-end for example should be much more based on the weather of high population density, as it impact more people.
+Therefore, instead of a simple average, we propose to compute the regional_best_weekend as the average ponderated by the density of population.
 
-3. Analysis of the past trends of the indicator in observational data (era5)
+In this study, we will use the "Gridded Population of the World (GPW-v4) produced by the NASA Socioeconomic Data and Applications Center (sedac). As explained on their website (https://sedac.ciesin.columbia.edu/data/collection/gpw-v4), GPW-v4 "models the distribution of human population (counts and densities) on a continuous global raster surface. (...) The essential inputs to GPW have been population census tables and corresponding geographic boundaries. The purpose of GPW is to provide a spatially disaggregated population layer that is compatible with data sets from social, economic, and Earth science disciplines, and remote sensing. It provides globally consistent and spatially explicit data for use in research, policy-making, and communications." 
+In particular, we will use	the "UN WPP-Adjusted Population Count, v4.11 from 2015 () which provide estimates of population count for the years 2000, 2005, 2010, 2015, and 2020, consistent with national censuses and population registers with respect to relative spatial distribution, but adjusted to match United Nations country total.
+
+Insert map of population, global map of indicator shown before, value of non ponderated global average and of ponderated average. 
+
+3. Analysis of the past trends of the indicator in real data (era5)
 
 4. Model based forecast of the indicator
 
