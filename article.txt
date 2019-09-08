@@ -1,4 +1,4 @@
-Since the establishment of the five-days working week at the beginning of the 20th century and the development of leisure oriented societies, hoping for a "nice week-end" meteorologically speaking has become an increasing preocupation for many people in modern civilizations. If the holidays are usually mostly taken during summer months (June, July, August in the Northern hemisphere, December, January, February in the Southern one) for the obvious reason that the weather is "better" during this period of the year, the non working days established on Saturday and Sunday in the majority of the countries answers more to religious ancestral traditions and not to meteorological reasons.
+Since the establishment of the five-days working week at the beginning of the 20th century and the development of leisure oriented societies, hoping for a "nice week-end" meteorologically speaking has become an increasing preoccupation for many people in modern civilizations. If the holidays are usually mostly taken during summer months (June, July, August in the Northern hemisphere, December, January, February in the Southern one) for the obvious reason that the weather is "better" during this period of the year, the non working days established on Saturday and Sunday in the majority of the countries answers more to religious ancestral traditions and not to meteorological reasons.
 
 In this article, after a short introduction about historical, societal and political reasons on the definition of the week-end, we will present a meteorological indicator defining the "touristic and leisure quality" of a week-end based on temperature, precipitation and demographical data. This indicator built, it will allow us to obtain, week by week, the "best 2 days week-end". Using era5 reanalysis hourly data from 1981 to present, we will try to detect trends (even if not physical for the reasons explained above) in the "best week end days", both at a local (point by point), regional and global scales. Finally, based on the observed patterns of the past in the reanalysis, we will analyze model outputs for the ten to twenty years to propose a week-end shift from Saturday-Sunday to the 2 best days.
 
@@ -6,7 +6,7 @@ In this article, after a short introduction about historical, societal and polit
 
 Outline:
 
-1. History of the 7 days week, 2 days week-end and deinition of the 2 days week-end around the world
+1. History of the 7 days week, 2 days week-end and definition of the 2 days week-end around the world
 2. Definition of a "week-end-metorological-quality" indicator
   a. Local formula of the indicator
   b. Regional and global mean with time-lag and population ponderation
@@ -18,7 +18,7 @@ Outline:
 
 
 
-1. History of the 7 days week, 2 days week-end and deinition of the 2 days week-end around the world
+1. History of the 7 days week, 2 days week-end and definition of the 2 days week-end around the world
 
 
 2. Definition of a "week-end-metorological-quality" indicator
