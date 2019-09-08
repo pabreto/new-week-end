@@ -76,11 +76,33 @@ In a first attempt, we could just say that the regional_best_weekend could be ea
 Therefore, instead of a simple average, we propose to compute the regional_best_weekend as the average ponderated by the density of population.
 
 In this study, we will use the "Gridded Population of the World (GPW-v4) produced by the NASA Socioeconomic Data and Applications Center (sedac). As explained on their website (https://sedac.ciesin.columbia.edu/data/collection/gpw-v4), GPW-v4 "models the distribution of human population (counts and densities) on a continuous global raster surface. (...) The essential inputs to GPW have been population census tables and corresponding geographic boundaries. The purpose of GPW is to provide a spatially disaggregated population layer that is compatible with data sets from social, economic, and Earth science disciplines, and remote sensing. It provides globally consistent and spatially explicit data for use in research, policy-making, and communications." 
-In particular, we will use	the "UN WPP-Adjusted Population Count, v4.11 from 2015 () which provide estimates of population count for the years 2000, 2005, 2010, 2015, and 2020, consistent with national censuses and population registers with respect to relative spatial distribution, but adjusted to match United Nations country total.
+In particular, we will use	the "UN WPP-Adjusted Population Count, v4.11 from 2015 (https://sedac.ciesin.columbia.edu/data/set/gpw-v4-population-count-adjusted-to-2015-unwpp-country-totals-rev11) which provide estimates of population count for the years 2000, 2005, 2010, 2015, and 2020, consistent with national censuses and population registers with respect to relative spatial distribution, but adjusted to match United Nations country total.
 
 Insert map of population, global map of indicator shown before, value of non ponderated global average and of ponderated average. 
 
+
+
 3. Analysis of the past trends of the indicator in real data (era5)
+
+
+In this study, we will use the reanalysis data of ERA5 available on the Copernicus Climate Data Store (CDS). 
+
+ERA5 is the fifth generation ECMWF atmospheric reanalysis of the global climate. Reanalysis combines model data with observations from across the world into a globally complete and consistent dataset using the laws of physics. This principle, called data assimilation, is based on the method used by numerical weather prediction centres, where every so many hours (12 hours at ECMWF) a previous forecast is combined with newly available observations in an optimal way to produce a new best estimate of the state of the atmosphere, called analysis, from which an updated, improved forecast is issued. Reanalysis works in the same way, but at reduced resolution to allow for the provision of a dataset spanning back several decades. Reanalysis does not have the constraint of issuing timely forecasts, so there is more time to collect observations, and when going further back in time, to allow for the ingestion of improved versions of the original observations, which all benefit the quality of the reanalysis product.
+
+ERA5 is available from January 1979 to present (June 2019) at an hourly resolution for our variables of interest (min and max temperature, precipitation and total cloud cover) at a 0.25°x0.25° regular latitude longitude grid.
+
+* Timeseries of global best_indicator, with mean and standard deviation from 1979 to present
+* Timeseries of European best_indicator, with mean and standard deviation from 1979 to present
+* Timeseries of South-East Asia best_indicator, with mean and standard deviation from 1979 to present
+* Timeseries of Africa best_indicator, with mean and standard deviation from 1979 to present
+* Timeseries of USA best_indicator, with mean and standard deviation from 1979 to present
+* Timeseries of China best_indicator, with mean and standard deviation from 1979 to present
+* Timeseries of France best_indicator, with mean and standard deviation from 1979 to present
+* Timeseries of Germany best_indicator, with mean and standard deviation from 1979 to present
+* Timeseries of Brasil best_indicator, with mean and standard deviation from 1979 to present
+* Timeseries of Indonesia best_indicator, with mean and standard deviation from 1979 to present
+
+Analysis of the plots
 
 4. Model based forecast of the indicator
 
