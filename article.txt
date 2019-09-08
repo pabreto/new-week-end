@@ -25,7 +25,23 @@ In this article, after a short introduction about historical, societal and polit
   As this indicator is touristic and societal, the weather at night shouldn't be taken into account and it will only consider the previously mentioned variables during the time 8am-11pm local time.
   Based on these considerations, we build the following day_quality_indicator:
   day_quality_indicator(date,latitude,longitude)=abs(((precip_score+temp_score+cloudiness_score)/110)*100)
-  with precip_score = abs((Number_of_hours_with_no_precipitation)/time_interval)*10)
+  
+  with:
+  
+    * precip_score = abs((Number_of_hours_with_no_precipitation)/time_interval)*100)
+    0<precip_score<100, integer
+    * temp_score = (((tmax_in_time_interval-tmin_in_week)/(tmax_in_week-tmin_in_week)*10)/2
+    0<temp_score<5, real
+    * cloudiness_score = (100-mean_cloudiness_in_time_interval)/20
+    0<cloudiness_score<5, real
+    * time_interval = 30 hours (from 8am to 11pm during 2 days)
+    * tmax,tmin in K
+    * cloudiness in % (0-100)
+    
+ With this formula, we obtain a indicator comprised between 0 and 100 indicating the quality of 2 consecutive days. The table below shows the value of the indicator for some discrete values of the parameters, to show how days compare with each other according to the different meteorological variables.
+ 
+ https://docs.google.com/spreadsheets/d/1YfSuxI9x2VlfgiYOHKsK2flSJghzGfel3MTTzLdt0xU/edit?usp=sharing
+ 
   
   
   
